@@ -2,8 +2,6 @@
 solo project repo for projects and algos
 
 
-# soloProject
-
 Project Name:
 cardCollector
 
