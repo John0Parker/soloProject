@@ -27,7 +27,7 @@ Feature List:
 
 
 GitHub repo link:
-
+https://github.com/John0Parker/soloProject/tree/main
 
 Product backlog:
 -Search feature: while I'm going to start small by only allowing users to navigate to a specific card's details via a list, 
