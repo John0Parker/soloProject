@@ -27,7 +27,18 @@ Feature List:
 GitHub repo link:
 https://github.com/John0Parker/soloProject/tree/main
 
+
+New Programming Concept(s) I'm Planning to Learn:
+-Become more experienced with GitHub
+-Login & Reg with JavaScript
+
+
+
 Product backlog:
+
+-Additional Card Types: I'm going to begin with only 3 of the 7 primary card types (no disrespect to 'Battle' but I'm not including it due to it being introduced this year).
+ I wanted to include all 7 primary card types, but minimum viable product and all.
+
 -Search feature: while I'm going to start small by only allowing users to navigate to a specific card's details via a list, 
   I want to add a search field that allows users to input text and choose search type from a dropdown menu (e.g. card name, keyword ability, card body text)
 
@@ -39,5 +50,5 @@ Product backlog:
 
 -Allow users to add photos of card artwork.
 
--Social aspect. Allow users to add their friends on the app and compare 
+-Social aspect: Allow users to add their friends on the app and compare 
   collections, deck lists, maybe even propose trades, etc.
