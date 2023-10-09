@@ -28,16 +28,16 @@ module.exports = {
         }, secret)
 
         // create cookie and attach userToken, then send to client
-        res.cookie("userToken", userToken, {httpOnly: true})
+        res.cookie("usertoken", userToken, {httpOnly: true})
         .json({msg: "success"})
     },
 
     logout: (req, res) => {
-        res.clearCookie("userToken");
+        res.clearCookie("usertoken");
         res.json({msg: "Logged out"});
     },
 
-    // not sure I'll need a findAllUsers method, but couldn't hurt
+    // not sure I'll need a findAllUsers method, but why not
     findAllUsers : (req, res) => {
         User.find()
         .then(allUsers => res.json(allUsers))
