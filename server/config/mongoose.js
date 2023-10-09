@@ -6,4 +6,4 @@ mongoose.connect("mongodb://127.0.0.1/cards_schema", {
     useUnifiedTopology: true
 })
     .then( () => console.log("Connected to MongoDB"))
-    .catch( (err) => console.log("there was an error connecting to MongoDB: ", err))
+    .catch( err => console.log("there was an error connecting to MongoDB: ", err));

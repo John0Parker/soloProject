@@ -1,11 +1,17 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+require('dotenv').config();
 
 app.use(
-    cors(),
+    cors({
+        credentials: true,
+        origin : "http://localhost:5173"
+    }),
     express.json(),
-    express.urlencoded({extended: true}), 
+    express.urlencoded({extended: true}),
+    cookieParser() 
     )
 
 // import mongoose
@@ -13,6 +19,7 @@ app.use(
 
     // import routes
     require('./routes/cardsRoutes')(app); 
+    require('./routes/userRoutes')(app);
 
 
     app.listen(8000, () => console.log('listening on port 8000'));

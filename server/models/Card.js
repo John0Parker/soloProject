@@ -22,7 +22,7 @@ const CardSchema = new mongoose.Schema({
         type:String,
         required: [false]
     },
-    Rarity: {
+    cardRarity: {
         type: String,
         required: [true, "Please specify the Card's Rarity."]
     },
@@ -30,6 +30,12 @@ const CardSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please specify the Expansion this card is from. (If you are not sure of the full Expansion/Set Name, please include the three-character abbreviation found on the bottom left of the card)."],
         minLength: [3, "The Expansion/Set Name must be at least three characters."]
+    },
+    cardPower: {
+        type : Number
+    },
+    cardToughness: {
+        type: Number
     }
 
 },{timestamps: true})
