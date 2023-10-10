@@ -36,6 +36,9 @@ const CardSchema = new mongoose.Schema({
     },
     cardToughness: {
         type: Number
+    },
+    cardLoyalty: {
+        type: Number
     }
 
 },{timestamps: true})

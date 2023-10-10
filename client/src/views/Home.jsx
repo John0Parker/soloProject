@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import {Route, Routes} from 'react-router-dom';
+import {Route, Routes, Navigate} from 'react-router-dom';
 import NewCardForm from '../components/NewCardForm';
 import CardDetail from '../components/CardDetail';
 import EditCardForm from '../components/EditCardForm';
@@ -41,8 +41,9 @@ const Home = (props) => {
 
     return(
         <>
-            <h1 className='header'>Welcome, Planeswalker</h1>
+
             <Routes>
+                <Route path="/" element={<Navigate to="/spells"/>}></Route>
                 <Route path='/spells' element={ <Dashboard allCards={allCards} setAllCards={setAllCards} />} />
                 <Route path='/spells/create' element={ <NewCardForm allCards={allCards} setAllCards={setAllCards} />} />
                 <Route path='/spells/:id' element={ <CardDetail allCards={allCards} setAllCards={setAllCards} />} />

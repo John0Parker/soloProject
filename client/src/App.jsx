@@ -17,7 +17,7 @@ return(
 {/*Got through all of the server-side stuff for 
     setting up login/reg. Couldn't figure out how to associate User objects 
     with an array of the card objects they created so they'd only see theirs.
-    Had a nervous breakdown. Bon Appetit. 
+    Had a breakdown. Bon Appetit. 
 
   // store info for logged-in user in State
   const [loggedUser, setLoggedUser] = useState(null);

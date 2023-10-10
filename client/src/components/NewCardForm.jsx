@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 const NewCardForm = ({allCards, setAllCards}) => {
 
     return(
-        <h1>Welcome, Planeswalker!</h1>
+        <h1 className='header'>Welcome, Planeswalker</h1>
     )
 }
 
