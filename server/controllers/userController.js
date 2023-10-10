@@ -14,11 +14,14 @@ module.exports = {
         // await dB find request and store in user
         const user = await User.findOne({email: req.body.email});
     
-        // check if user is null
+        // check if user is null and return error
         if (user === null){
             return res.status(400).json({msg: "Invalid credentials"});
         }
-        if(!await bcrypt.compare(req.body.password, user.password)){
+        // await the result of bcrypt comparison and store boolean in validPassword
+        const validPassword = await bcrypt.compare(req.body.password, user.password);
+        // Check with passwords match
+        if(!validPassword){
             return res.status(400).json({msg: "Invalid credentials"});
         }
         
@@ -29,15 +32,15 @@ module.exports = {
 
         // create cookie and attach userToken, then send to client
         res.cookie("usertoken", userToken, {httpOnly: true})
-        .json({msg: "success"})
+        .json(user)
     },
-
+    // logout function clears usertoken from cookies so they are no longer authenticated
     logout: (req, res) => {
         res.clearCookie("usertoken");
         res.json({msg: "Logged out"});
     },
 
-    // not sure I'll need a findAllUsers method, but why not
+    // not planning on utilizing this method client-side, but just for the sake of testing
     findAllUsers : (req, res) => {
         User.find()
         .then(allUsers => res.json(allUsers))
