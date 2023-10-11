@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from "react";
-import {Link, useParams} from 'react-router-dom';
+import {Link, useParams, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 
-const CardDetail = (props) => {
+const CardDetail = ({allCards,setAllCards}) => {
     const [card, setCard] = useState({})
     const {id} = useParams();
+    const navigate = useNavigate();
+
+    // set up axios call to get card details for the card._id in parameters
     useEffect(() => {
         axios.get(`http://localhost:8000/api/cards/${id}`)
             .then( res => {
@@ -13,6 +16,18 @@ const CardDetail = (props) => {
             })
             .catch( err => console.log(err));
     }, [])
+
+    const deleteCardHandler = e => {
+        const idToDelete = e.target.id;
+        axios.delete(`http://localhost:8000/api/cards/${idToDelete}`)
+        .then (res => {
+            const filteredCards = allCards.filter( 
+                card => card._id !== idToDelete);
+            setAllCards(filteredCards);
+            navigate(`/spells`);
+        })
+    }
+
 
     {/*// All card/spell types will display 
         cardName, cardType, cardCost, isLegendary, cardText, and cardExpansion.
@@ -46,6 +61,9 @@ const CardDetail = (props) => {
                 : ""}
             
             <p>Expansion/Set: {card.cardExpansion}</p>
+            </div>
+            <div className="deleteButton">
+                <button onClick={deleteCardHandler} id={card._id}>Delete this Spell</button>
             </div>
         </div>
         </>

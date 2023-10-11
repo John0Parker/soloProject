@@ -36,6 +36,11 @@
   margin-top: 20px;
 }
 
+/* styling for delete button on cardDetail page */
+.deleteButton{
+  padding-top: 10px;
+}
+
 /* styling for textarea input in form */
 .textArea{
   height: 8rem;
