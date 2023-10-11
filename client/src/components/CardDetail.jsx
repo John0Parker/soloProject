@@ -20,23 +20,34 @@ const CardDetail = (props) => {
         Only Planeswalkers will display cardLoyalty*/}
     return(
         <>
-        <h1 className='header'>{card.cardName}</h1>
-        <p>Mana Cost: {card.cardCost}</p>
-        <p>Spell Type: {card.cardType}</p>
-        <p>{card.isLegendary? "Legendary" : "Non-Legendary"}</p>
-        <p>Rarity: {card.cardRarity}</p>
-        <p>Card Text: {card.cardText}</p>
-        <p>{card.cardType=="Creature" ? 
-            `Power:${card.cardPower}` : ""}
-        </p>
-        <p>{card.cardType=="Creature" ? 
-            `Toughness: ${card.cardToughness}` : ""}
-        </p>
-        <p>{card.cardType=="Planeswalker" ? 
-            `Planeswalker Loyalty: ${card.cardLoyalty}` : ""}
-        </p>
-        <p>Expansion/Set: {card.cardExpansion}</p>
-        <Link to={`/spells/edit/${card._id}`}>Edit this Card</Link>
+        <div className="container">
+            <h1 className='header'>{card.cardName}</h1>
+            <div className="detailNav">
+                <button><Link to={'/spells'}>Return to Library</Link></button>
+                <button><Link to={`/spells/edit/${card._id}`}>Edit this Spell</Link></button>
+            </div>
+            <div className="detailBody">
+            <p>Mana Cost: {card.cardCost}</p>
+            <p>Spell Type: {card.cardType}</p>
+            {card.cardType !=="Planeswalker" ?  
+            <p>{card.isLegendary? "Legendary" : "Non-Legendary"}</p>
+            :""}
+            <p>Rarity: {card.cardRarity}</p>
+            <p>Card Text: {card.cardText}</p>
+            {card.cardType=="Creature" ? 
+                <p>{`Power:${card.cardPower}`}</p>
+                : ""}
+            {card.cardType=="Creature" ? 
+                <p>{`Toughness: ${card.cardToughness}`}</p>
+                : ""}
+            
+            {card.cardType=="Planeswalker" ? 
+                <p> {`Planeswalker Loyalty: ${card.cardLoyalty}`}</p> 
+                : ""}
+            
+            <p>Expansion/Set: {card.cardExpansion}</p>
+            </div>
+        </div>
         </>
     )
 }

@@ -1,17 +1,80 @@
+*{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Styling for h1 element */
 .header{
-  position: sticky;
+  font-size: 4vw;
+  text-align:center;
+  padding:20px;
 }
 
-
-.card {
-  padding: 2em;
+/* applying display-flex to each page */
+.container{
+  display: flex;
+  flex-direction: column;
 }
 
+/* styling for buttons at top of cardDetail */
+.detailNav{
+  display:flex;
+  justify-content: space-around;
+}
 
+/* styling for main body of cardDetail */
+.detailBody{
+  border: 5px solid;
+  border-radius: 1rem;
+  margin-top: 20px;
+}
+
+/* styling for textarea input in form */
+.textArea{
+  height: 8rem;
+  width: 15rem;
+}
+
+/* Styling to align "Card Text:" with textbox on EditCardForm and NewCardForm */
+.cardText{
+  display: inline-flex;
+}
+
+/* Styling for main body of dashboard page */
+.dashboardBody{
+  border: 5px solid;
+  border-radius: 1rem;
+}
+
+/* Styling for "create a new card" button on dashboard */
+.dashButton{
+  display: flex;
+  justify-content: center;
+  
+}
+/* padding above form to make spacing less awkward */
+.form{
+  padding-top: 10px;
+}
+
+/* styling for labels on form */
+label{
+  font-weight:bold ;
+  padding: 5px;
+  margin: 2px;
+  color: aliceblue;
+}
+
+/* remove bullets and center unordered list of spells on dashboard */
+li{
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
